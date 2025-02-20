@@ -1,0 +1,7 @@
+<div class="bg-gray-800 p-4 rounded-xl shadow-lg">
+  <h2 class="text-lg font-semibold text-white">Wallet</h2>
+  <p class="text-gray-400" *ngIf="walletAddress">Connected: {{ walletAddress }}</p>
+  <button (click)="connectWallet()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
+    Connect Wallet
+  </button>
+</div>
