@@ -1,0 +1,19 @@
+<!-- components/shared/sidebar/sidebar.component.html -->
+<aside class="bg-dark-surface text-dark-text p-4 h-screen sticky top-0">
+  <nav>
+    <ul class="space-y-2">
+      <li>
+        <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="block py-2 px-4 rounded hover:bg-gray-700">Home</a>
+      </li>
+      <li>
+        <a routerLink="/portfolio/dashboard" routerLinkActive="active-link" class="block py-2 px-4 rounded hover:bg-gray-700">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/portfolio/create" routerLinkActive="active-link" class="block py-2 px-4 rounded hover:bg-gray-700">Create Portfolio</a>
+      </li>
+      <li>
+        <a routerLink="/portfolio/settings" routerLinkActive="active-link" class="block py-2 px-4 rounded hover:bg-gray-700">Settings</a>
+      </li>
+    </ul>
+  </nav>
+</aside>

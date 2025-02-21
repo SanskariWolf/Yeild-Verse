@@ -1,9 +1,10 @@
-<nav class="bg-gray-900 text-white p-4 flex justify-between">
-  <div class="text-xl font-bold">YieldVerse</div>
-  <ul class="flex space-x-4">
-    <li><a routerLink="/" class="hover:text-gray-300">Home</a></li>
-    <li><a routerLink="/dashboard" class="hover:text-gray-300">Dashboard</a></li>
-    <li><a routerLink="/portfolio" class="hover:text-gray-300">Portfolio</a></li>
-    <li><a routerLink="/profile" class="hover:text-gray-300">Profile</a></li>
-  </ul>
-</nav>
+
+<app-header></app-header>
+<div class="flex">
+  <app-sidebar class="w-64"></app-sidebar>
+  <div class="flex-grow p-4">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>
+

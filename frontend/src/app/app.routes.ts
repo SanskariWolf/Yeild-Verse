@@ -1,12 +1,25 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ConnectWalletComponent } from './components/pages/connect-wallet/connect-wallet.component';
+import { PortfolioComponent } from './components/pages/portfolio/portfolio.component';
+import { PortfolioDashboardComponent } from './components/pages/portfolio/portfolio-dashboard/portfolio-dashboard.component';
+import { PortfolioCreateComponent } from './components/pages/portfolio/portfolio-create/portfolio-create.component';
+import { PortfolioSettingsComponent } from './components/pages/portfolio/portfolio-settings/portfolio-settings.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'connect-wallet', component: ConnectWalletComponent },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: PortfolioDashboardComponent },
+      { path: 'create', component: PortfolioCreateComponent },
+      { path: 'settings', component: PortfolioSettingsComponent },
+    ]
+  },
+  { path: '**', component: NotFoundComponent },
 ];

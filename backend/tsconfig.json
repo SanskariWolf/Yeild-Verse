@@ -1,0 +1,19 @@
+// tsconfig.json
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "commonjs",
+      "lib": ["es6", "dom"],
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "declaration": false
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+  }

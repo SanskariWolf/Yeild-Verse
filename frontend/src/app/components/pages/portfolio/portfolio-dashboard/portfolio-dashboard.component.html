@@ -1,0 +1,30 @@
+<div *ngIf="portfolioData$ | async as portfolioData; else loading">
+  <h2 class="text-2xl font-bold mb-4">Portfolio Dashboard</h2>
+  <p>Total Value: ${{ portfolioData.totalValue | number:'1.2-2' }}</p>
+  <p>Risk Score: {{ portfolioData.riskScore }}</p>
+
+  <h3 class="text-xl font-bold mt-4 mb-2">Assets</h3>
+  <div *ngIf="portfolioData.assets.length > 0; else noAssets">
+      <div *ngFor="let asset of portfolioData.assets" class="border p-2 mb-2">
+      <p>Symbol: {{ asset.symbol }}</p>
+      <p>Balance: {{ asset.balance | number:'1.2-5' }}</p>
+      <p>Value: ${{ asset.value | number:'1.2-2' }}</p>
+      <p>APY: {{ asset.apy * 100 | number:'1.2-2' }}%</p>
+      </div>
+  </div>
+  <ng-template #noAssets>
+      <p>No assets in your portfolio yet.</p>
+  </ng-template>
+
+  <h3 class="text-xl font-bold mt-4 mb-2">AI Predictions</h3>
+  <div *ngIf="aiPredictions$ | async as aiPredictions">
+      <div *ngFor="let allocation of aiPredictions.recommendedAllocations" class="border p-2 mb-2">
+      <p>{{ allocation.symbol }}: {{ allocation.percentage * 100 | number:'1.2-2' }}%</p>
+      </div>
+      <p>Projected Yield: {{ aiPredictions.projectedYield * 100 | number:'1.2-2' }}%</p>
+  </div>
+  </div>
+
+  <ng-template #loading>
+  <p>Loading portfolio data...</p>
+  </ng-template>
