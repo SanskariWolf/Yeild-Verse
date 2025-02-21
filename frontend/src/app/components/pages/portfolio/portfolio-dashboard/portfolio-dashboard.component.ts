@@ -6,8 +6,6 @@ import { Observable, Subscription, of, combineLatest } from 'rxjs';
 import { switchMap, catchError, tap, filter, map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 
-
-
 @Component({
   selector: 'app-portfolio-dashboard',
   imports: [CommonModule],

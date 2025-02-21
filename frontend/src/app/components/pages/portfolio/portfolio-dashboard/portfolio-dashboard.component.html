@@ -7,8 +7,8 @@
 
   <h3 class="text-2xl font-semibold mt-6 mb-3 text-white">Assets</h3>
   <div *ngIf="portfolioData.assets.length > 0; else noAssets">
-      <div *ngFor="let asset of portfolioData.assets" class="bg-gray-800 p-4 rounded-lg mb-2 shadow-md">
-      <p class="font-semibold">Symbol: <span class="text-blue-400">{{ asset.symbol }}</span></p>
+      <div *ngFor="let asset of portfolioData.assets" class="bg-gray-800 p-4 rounded-lg mb-2 shadow-md text-white">
+      <p class="font-semibold ">Symbol: <span class="text-blue-400">{{ asset.symbol }}</span></p>
       <p>Balance: <span class="text-green-300">{{ asset.balance | number:'1.2-5' }}</span></p>
       <p>Value: <span class="text-green-400">${{ asset.value | number:'1.2-2' }}</span></p>
       <p>APY: <span class="text-yellow-300">{{ asset.apy * 100 | number:'1.2-2' }}%</span></p>
@@ -20,7 +20,7 @@
 
   <h3 class="text-2xl font-semibold mt-6 mb-3 text-white">AI Predictions</h3>
   <div *ngIf="aiPredictions$ | async as aiPredictions">
-      <div *ngFor="let allocation of aiPredictions.recommendedAllocations" class="bg-gray-700 p-4 rounded-lg mb-2 shadow-md">
+      <div *ngFor="let allocation of aiPredictions.recommendedAllocations" class="bg-gray-700 p-4 rounded-lg mb-2 shadow-md text-white">
       <p>{{ allocation.symbol }}: <span class="text-blue-300">{{ allocation.percentage * 100 | number:'1.2-2' }}%</span></p>
       </div>
       <p class="text-green-400">Projected Yield: {{ aiPredictions.projectedYield * 100 | number:'1.2-2' }}%</p>
@@ -30,3 +30,5 @@
 <ng-template #loading>
   <p class="text-white text-center">Loading portfolio data...</p>
 </ng-template>
+
+
